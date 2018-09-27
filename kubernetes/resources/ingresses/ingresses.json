@@ -1,0 +1,83 @@
+{
+    "production": {
+        "ingress-ok": {
+            "apiVersion": "extensions/v1beta1",
+            "kind": "Ingress",
+            "metadata": {
+                "name": "ingress-ok",
+                "namespace": "production"
+            },
+            "spec": {
+                "rules": [
+                    {
+                        "host": "signin.acmecorp.com",
+                        "http": {
+                            "paths": [
+                                {
+                                    "backend": {
+                                        "serviceName": "nginx",
+                                        "servicePort": 80
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "qa": {
+        "ingress-bad": {
+            "apiVersion": "extensions/v1beta1",
+            "kind": "Ingress",
+            "metadata": {
+                "name": "ingress-bad",
+                "namespace": "qa"
+            },
+            "spec": {
+                "rules": [
+                    {
+                        "host": "acmecorp.com",
+                        "http": {
+                            "paths": [
+                                {
+                                    "backend": {
+                                        "serviceName": "nginx",
+                                        "servicePort": 80
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "staging": {
+        "ingress-conflict": {
+            "apiVersion": "extensions/v1beta1",
+            "kind": "Ingress",
+            "metadata": {
+                "name": "ingress-conflict",
+                "namespace": "staging"
+            },
+            "spec": {
+                "rules": [
+                    {
+                        "host": "signin.acmecorp.com",
+                        "http": {
+                            "paths": [
+                                {
+                                    "backend": {
+                                        "serviceName": "nginx",
+                                        "servicePort": 80
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

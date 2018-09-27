@@ -1,0 +1,32 @@
+{
+    "production": {
+        "apiVersion": "v1",
+        "kind": "Namespace",
+        "metadata": {
+            "annotations": {
+                "ingress-whitelist": "*.acmecorp.com"
+            },
+            "name": "production"
+        }
+    },
+    "qa": {
+        "apiVersion": "v1",
+        "kind": "Namespace",
+        "metadata": {
+            "annotations": {
+                "ingress-whitelist": "*.qa.acmecorp.com,*.internal.acmecorp.com"
+            },
+            "name": "qa"
+        }
+    },
+    "staging": {
+        "apiVersion": "v1",
+        "kind": "Namespace",
+        "metadata": {
+            "annotations": {
+                "ingress-whitelist": "*.acmecorp.com"
+            },
+            "name": "staging"
+        }
+    }
+}
